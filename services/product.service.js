@@ -28,7 +28,6 @@ module.exports = {
 		 * @returns
 		 */
 		get() {
-			var respon ;
 			return Axios.get('http://localhost:8080/v1/products/all')
 				.then(res => {
 					// console.log(res.data.data)
@@ -38,11 +37,11 @@ module.exports = {
 					console.log(err)
 				})
 		},
-
+		
 		/**
 		 * Welcome a username
 		 *
-		 * @param {String} name - User name
+		 * @param {String} name - Product name
 		 */
 		welcome: {
 			params: {
@@ -50,6 +49,24 @@ module.exports = {
 			},
 			handler(ctx) {
 				return `Product name, ${ctx.params.name}`;
+			}
+		},
+		
+		/**
+		 * Welcome a username
+		 *
+		 * @param {String} id - Product id
+		 */
+		get_product_by_id: {
+			params: {
+				id: "string"
+			},
+			handler(ctx) {
+				return Axios.get(`http://localhost:8080/v1/products/${ctx.params.id}`)
+					.then((res) => {
+						return res.data.data
+					})
+				// return `Product detail, ${ctx.params.name}`;
 			}
 		}
 	},
