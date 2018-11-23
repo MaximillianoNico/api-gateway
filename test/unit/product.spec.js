@@ -36,7 +36,7 @@ describe("Test 'product' service", () => {
     describe("Test 'get_product_by_id' action", () => {
         it("should return json product detail", () => {
             const res = broker.call("product.get_product_by_id");
-            expect(res.statusCode).resolves.toBe("600")
+            expect(typeof res).toBe('object')
         })
     })
 
