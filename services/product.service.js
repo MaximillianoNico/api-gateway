@@ -43,6 +43,20 @@ module.exports = {
 		 *
 		 * @param {String} name - Product name
 		 */
+		getProductById: {
+			params: {
+				name: "string"
+			},
+			handler(ctx) {
+				return `Product name, ${ctx.params.name}`;
+			}
+		},
+		
+		/**
+		 * Welcome a username
+		 *
+		 * @param {String} name - Product name
+		 */
 		welcome: {
 			params: {
 				name: "string"
