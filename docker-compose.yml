@@ -5,7 +5,7 @@ services:
   api:
     build:
       context: .
-    image: first-demo
+    image: api-gateway
     env_file: docker-compose.env
     environment:
       SERVICES: api
@@ -20,11 +20,18 @@ services:
   greeter:
     build:
       context: .
-    image: first-demo
+    image: api-gateway-greeter
     env_file: docker-compose.env
     environment:
       SERVICES: greeter
 
+  products:
+    build:
+      context: .
+    image: api-gateway-products
+    env-file: docker-compose.env
+    environment:
+      SERVICES: products
 
   traefik:
     image: traefik
